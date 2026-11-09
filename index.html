@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101510">
+  <title>APEX / Night Run</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Apex home"><span class="brand-mark">A</span><span>APEX<span class="brand-slash">/</span></span></a>
+      <div class="season-tag"><span class="live-dot"></span> SEASON 04 <span class="tag-divider">/</span> NIGHT SERIES</div>
+      <div class="top-actions"><button class="icon-button sound-toggle" aria-label="Toggle sound" title="Toggle sound">♫</button><div class="profile"><span class="profile-avatar">JD</span><span class="profile-name">J. DRIVER</span></div></div>
+    </header>
+
+    <section class="page-heading">
+      <div><div class="eyebrow"><span class="eyebrow-line"></span> ARCADE / QUICK RACE</div><h1>NIGHT <span>RUN</span></h1><p class="subtitle">One more lap. One more chance to own the night.</p></div>
+      <div class="event-pill"><span class="event-icon">✦</span><div><small>TONIGHT'S EVENT</small><strong>NEON CIRCUIT <span>↗</span></strong></div></div>
+    </section>
+
+    <section class="race-layout">
+      <div class="race-column">
+        <div class="game-frame">
+          <canvas id="game" width="1000" height="600" aria-label="Top-down car racing game"></canvas>
+          <div class="race-hud" id="raceHud" hidden>
+            <div class="hud-left"><div class="lap-label">LAP <span id="lapCurrent">1</span><i>/</i><span id="lapTotal">3</span></div><div class="lap-track"><span id="lapFill"></span></div></div>
+            <div class="hud-center"><span class="hud-caption">POSITION</span><strong id="position">1<span>ST</span></strong></div>
+            <div class="hud-right"><span class="hud-caption">TIME</span><strong id="timer">00:00.00</strong></div>
+          </div>
+          <div class="speed-hud" id="speedHud" hidden><strong id="speed">000</strong><span>KM/H</span><div class="speed-divider"></div><span class="boost-indicator" id="boostLabel">BOOST <b>▰▰▰</b></span></div>
+          <div class="game-overlay" id="startOverlay">
+            <div class="overlay-kicker"><span>01</span> / THE STARTING GRID</div>
+            <h2>FIND YOUR<br><em>RACING LINE.</em></h2>
+            <p>Three laps. Four drivers. No second place energy.</p>
+            <button class="start-button" id="startButton"><span>START YOUR ENGINE</span><b>↗</b></button>
+            <div class="overlay-foot"><span>⌨ &nbsp;WASD / ARROWS TO DRIVE</span><span>SPACE &nbsp; BOOST</span></div>
+          </div>
+          <div class="pause-overlay" id="pauseOverlay" hidden><span class="pause-mark">Ⅱ</span><h2>RACE PAUSED</h2><p>Take a breath. The night isn't going anywhere.</p><button class="resume-button" id="resumeButton">BACK TO RACE <span>↗</span></button></div>
+          <div class="finish-overlay" id="finishOverlay" hidden><div class="finish-badge">FINISH</div><h2 id="finishTitle">NICE DRIVE.</h2><p id="finishCopy">The city is yours tonight.</p><div class="finish-time" id="finishTime">00:00.00</div><button class="start-button replay-button" id="replayButton"><span>RACE AGAIN</span><b>↗</b></button></div>
+          <button class="pause-button" id="pauseButton" aria-label="Pause race" hidden>Ⅱ</button>
+          <div class="track-label"><span class="track-label-dot"></span> NEON CIRCUIT <span>•</span> TOKYO, JP</div>
+        </div>
+        <div class="game-footer"><div class="control-tip"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>DRIVE</span><i></i><kbd>SPACE</kbd><span>BOOST</span></div><div class="footer-note"><span>✦</span> &nbsp;TIP: SLIPSTREAM TO CHARGE YOUR BOOST</div><button class="fullscreen-button" id="fullscreenButton">⛶ &nbsp; FULL SCREEN</button></div>
+      </div>
+
+      <aside class="race-sidebar">
+        <section class="side-card event-card"><div class="card-head"><span>01 / CIRCUIT INFO</span><span class="more-dots">•••</span></div><div class="circuit-art"><div class="art-glow"></div><svg viewBox="0 0 240 115" aria-label="Circuit map"><path class="map-shadow" d="M39 76 C30 56 48 25 78 28 L157 22 C187 20 204 40 195 58 L184 82 C176 99 155 94 133 91 L72 91 C54 91 45 87 39 76Z"/><path class="map-line" d="M39 76 C30 56 48 25 78 28 L157 22 C187 20 204 40 195 58 L184 82 C176 99 155 94 133 91 L72 91 C54 91 45 87 39 76Z"/><circle cx="39" cy="76" r="4" class="map-start"/><path class="map-arrow" d="M52 48l8-5-1 9z"/></svg><span class="map-coordinate">35°40' N / 139°42' E</span></div><div class="circuit-name"><div><h3>Neon Circuit</h3><span>URBAN STREET · NIGHT</span></div><span class="difficulty"><i>◆◆◆</i><small>INTERMEDIATE</small></span></div><div class="stats-row"><div><span>LENGTH</span><strong>2.4 <small>KM</small></strong></div><div><span>BEST LAP</span><strong>01:24<small>.82</small></strong></div><div><span>WEATHER</span><strong>☾ <small>DRY</small></strong></div></div></section>
+
+        <section class="side-card grid-card"><div class="card-head"><span>02 / GRID ORDER</span><span class="grid-count">04 DRIVERS</span></div><div class="driver-list" id="driverList"><div class="driver-row player-row"><span class="driver-number">01</span><span class="driver-color player-color"></span><span class="driver-name">YOU <small>• YOUR CAR</small></span><span class="driver-rating">P1</span></div><div class="driver-row"><span class="driver-number">02</span><span class="driver-color pink-color"></span><span class="driver-name">NOVA <small>GT-R</small></span><span class="driver-rating">A</span></div><div class="driver-row"><span class="driver-number">03</span><span class="driver-color yellow-color"></span><span class="driver-name">KAI <small>RX-7</small></span><span class="driver-rating">B+</span></div><div class="driver-row"><span class="driver-number">04</span><span class="driver-color blue-color"></span><span class="driver-name">MILES <small>911</small></span><span class="driver-rating">B</span></div></div></section>
+        <section class="challenge-card"><span class="challenge-icon">↗</span><div><span class="challenge-overline">DAILY CHALLENGE</span><strong>Stay on the gas.</strong><p>Finish a race without hitting the brakes.</p></div><div class="challenge-progress"><span>0 / 1</span><i></i></div></section>
+        <div class="sidebar-bottom"><span>BUILD 0.4.2</span><span>MADE FOR THE NIGHT <b>♥</b></span></div>
+      </aside>
+    </section>
+    <footer class="site-footer"><span>© 2025 APEX MOTOR CLUB</span><div><span>TERMS</span><span>COMMUNITY</span><span>SUPPORT</span></div><span class="online-status"><i></i> ALL SYSTEMS OPERATIONAL</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
